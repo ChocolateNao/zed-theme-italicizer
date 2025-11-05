@@ -1,3 +1,5 @@
+type Nullable<T> = T | undefined | null;
+
 export interface ZedTheme {
   $schema: string,
   name: string;
@@ -7,30 +9,31 @@ export interface ZedTheme {
 
 export interface Theme {
     name: string;
-    appearance: string;
+    appearance:  "light" | "dark";
     style: ThemeStyle;
 }
 
 export interface ThemeStyle {
   players: PlayerStyle;
   syntax: SyntaxStyle;
+  accents?: Nullable<string[]>;
   [key: string]: unknown;
 }
 
 export interface PlayerStyle {
   [key: string]: {
-    cursor?: string;
-    background?: string;
-    selection?: string;
+    cursor?: Nullable<string>;
+    background?: Nullable<string>;
+    selection?: Nullable<string>;
   };
 }
 
 export interface SyntaxStyle {
   [key: string]: {
-    background_color?: string;
-    color?: string;
-    font_style?: string;
-    font_weight?: string;
+    background_color?: Nullable<string>;
+    color?: Nullable<string>;
+    font_style?: Nullable<"normal" | "italic" | "oblique">;
+    font_weight?: Nullable<number>;
   };
 }
 
