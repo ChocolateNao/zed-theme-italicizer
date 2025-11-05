@@ -1,13 +1,14 @@
 export interface ZedTheme {
+  $schema: string,
   name: string;
   author: string;
   themes: Theme[];
 }
 
 export interface Theme {
+    name: string;
     appearance: string;
-    name:       string;
-    style:      ThemeStyle;
+    style: ThemeStyle;
 }
 
 export interface ThemeStyle {
