@@ -1,0 +1,28 @@
+{
+  "name": "@zed-theme-parser/core",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "node ./esbuild.config.mjs",
+    "dev": "tsc --watch",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist/types",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts --fix",
+    "lint:check": "eslint src --ext .ts",
+    "format": "prettier --write src",
+    "format:check": "prettier --check src",
+    "validate": "pnpm typecheck && pnpm lint:check && pnpm format:check"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1"
+  }
+}

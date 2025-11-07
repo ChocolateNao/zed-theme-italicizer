@@ -1,0 +1,8 @@
+packages:
+  - packages/*
+
+loglevel: info
+
+onlyBuiltDependencies:
+  - esbuild
+  - unrs-resolver

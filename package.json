@@ -1,5 +1,6 @@
 {
-  "name": "zed-theme-parser",
+  "name": "zed-theme-parser-workspace",
+  "private": true,
   "version": "0.1.0",
   "description": "A tool to to parse, validate and italicize Zed editor themes",
   "main": "./src/index.js",
@@ -8,14 +9,18 @@
     "zed-theme-parser": "./dist/cli.js"
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node ./esbuild.config.mjs",
-    "build:types": "tsc --emitDeclarationOnly --outDir dist/types",
-    "prepublishOnly": "npm run build && npm run build:types",
-    "dev": "tsc --watch",
-    "cli": "node dist/cli.js",
-    "pack": "npm pack",
-    "publish:local": "npm run build && npm run build:types && npm pack"
+    "build": "pnpm -r --filter='./packages/*' run build",
+    "build:types": "pnpm -r --filter='./packages/*' run build:types",
+    "cli": "pnpm --filter='./packages/cli' run start",
+    "dev": "pnpm -r --parallel --filter='./packages/*' run dev",
+    "typecheck": "pnpm -r --filter='./packages/*' run typecheck",
+    "lint": "pnpm -r --parallel --filter='./packages/*' run lint",
+    "lint:check": "pnpm -r --parallel --filter='./packages/*' run lint:check",
+    "format": "pnpm -r --parallel --filter='./packages/*' run format",
+    "format:check": "pnpm -r --parallel --filter='./packages/*' run format:check",
+    "validate": "pnpm -r --parallel --filter='./packages/*' run validate"
   },
   "keywords": [
     "zed",
@@ -28,8 +33,19 @@
   "packageManager": "pnpm@10.19.0",
   "devDependencies": {
     "@types/node": "^24.10.0",
-    "commander": "^14.0.2",
+    "@typescript-eslint/parser": "^8.46.3",
     "esbuild": "^0.25.12",
-    "typescript": "^5.9.3"
+    "eslint": "^9.39.1",
+    "eslint-config-love": "^133.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-unused-imports": "^4.3.0",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.3"
   }
 }

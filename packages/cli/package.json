@@ -1,0 +1,26 @@
+{
+  "name": "zed-theme-parser",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "zed-theme-parser": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "node ./esbuild.config.mjs",
+    "dev": "tsc --watch",
+    "start": "pnpm build && node dist/index.js",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist/types",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts --fix",
+    "lint:check": "eslint src --ext .ts",
+    "format": "prettier --write src",
+    "format:check": "prettier --check src",
+    "validate": "pnpm typecheck && pnpm lint:check && pnpm format:check"
+  },
+  "devDependencies": {
+    "@zed-theme-parser/core": "workspace:*",
+    "chalk": "^5.6.2",
+    "commander": "^14.0.2",
+    "ora": "^9.0.0"
+  }
+}

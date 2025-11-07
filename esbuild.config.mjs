@@ -1,9 +1,0 @@
-import * as esbuild from 'esbuild'
-
-await esbuild.build({
-  entryPoints: ['src/cli.ts', 'src/api.ts', 'src/core.ts'],
-  bundle: true,
-  outdir: 'dist',
-  minify: true,
-  format: 'esm',
-})
