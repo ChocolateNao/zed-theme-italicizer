@@ -18,7 +18,7 @@ export default defineConfig([
         tsconfigRootDir: import.meta.dirname,
       },
     },
-    ignores: ['dist/**/*', '*.mjs', 'node_modules'],
+    ignores: ['dist/**/*', '*.mjs', 'node_modules', 'build/**/*', 'coverage/**/*', '*.d.ts'],
     plugins: {
       'eslint-comments': eslintComments,
       import: pluginImport,
