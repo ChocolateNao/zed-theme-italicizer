@@ -20,24 +20,22 @@ export interface ThemeStyle {
   [key: string]: unknown;
 }
 
-export type PlayerStyle = Record<
-  string,
-  {
-    cursor?: Nullable<string>;
-    background?: Nullable<string>;
-    selection?: Nullable<string>;
-  }
->;
+export type PlayerStyle = Record<string, PlayerStyleItem>;
 
-export type SyntaxStyle = Record<
-  string,
-  {
-    background_color?: Nullable<string>;
-    color?: Nullable<string>;
-    font_style?: Nullable<'normal' | 'italic' | 'oblique'>;
-    font_weight?: Nullable<number>;
-  }
->;
+export type SyntaxStyle = Record<string, SyntaxStyleItem>;
+
+export interface SyntaxStyleItem {
+  background_color?: Nullable<string>;
+  color?: Nullable<string>;
+  font_style?: Nullable<'normal' | 'italic' | 'oblique'>;
+  font_weight?: Nullable<number>;
+}
+
+export interface PlayerStyleItem {
+  cursor?: Nullable<string>;
+  background?: Nullable<string>;
+  selection?: Nullable<string>;
+}
 
 export interface ItalicizeConfig {
   /** Whether to preserve existing font styles */
