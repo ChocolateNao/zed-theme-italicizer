@@ -35,6 +35,7 @@
     "@types/node": "^24.10.0",
     "@typescript-eslint/parser": "^8.46.3",
     "esbuild": "^0.25.12",
+    "esbuild-node-externals": "^1.18.0",
     "eslint": "^9.39.1",
     "eslint-config-love": "^133.0.0",
     "eslint-config-prettier": "^10.1.8",
@@ -44,6 +45,7 @@
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-unused-imports": "^4.3.0",
     "prettier": "^3.6.2",
+    "rimraf": "^6.1.0",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.3"

@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "type": "module",
   "bin": {
-    "zed-theme-parser": "./dist/index.js"
+    "zed-theme-parser": "./dist/index.js",
+    "ztp": "./dist/index.js"
   },
   "scripts": {
-    "build": "node ./esbuild.config.mjs",
+    "build": "rimraf ./dist && node ./esbuild.config.mjs",
     "dev": "tsc --watch",
     "start": "pnpm build && node dist/index.js",
     "build:types": "tsc --emitDeclarationOnly --outDir dist/types",

@@ -1,10 +1,6 @@
-import * as esbuild from 'esbuild';
+import { build } from '../../esbuild.config.mjs';
 
-await esbuild.build({
+await build({
   entryPoints: ['src/index.ts'],
-  bundle: true,
-  outdir: 'dist',
-  minify: true,
-  format: 'esm',
-  platform: 'node',
+  metafile: true,
 });
